@@ -1,0 +1,84 @@
+[gd_scene format=3 uid="uid://tpr4c4rtfum6"]
+
+[ext_resource type="Script" uid="uid://cm733xsh314jr" path="res://src/GameManager.gd" id="1_5abg4"]
+[ext_resource type="Texture2D" uid="uid://bj5u6cbp63tpr" path="res://assets/textures/_123863952_little2.jpg" id="1_ojte4"]
+[ext_resource type="PackedScene" uid="uid://qyor8pp77sy1" path="res://assets/scenes/PlayerCharacterScene.tscn" id="2_7kv4h"]
+[ext_resource type="PackedScene" uid="uid://dacm03puy8emu" path="res://assets/scenes/PlayerUI.tscn" id="2_kt0or"]
+[ext_resource type="PackedScene" uid="uid://ckrctg7adll17" path="res://assets/scenes/FinishPointScene.tscn" id="4_5abg4"]
+[ext_resource type="PackedScene" uid="uid://8360e0m43ysd" path="res://assets/scenes/TrapScene.tscn" id="5_s6ugo"]
+[ext_resource type="PackedScene" uid="uid://cf7euy4pffxm2" path="res://assets/scenes/MonsterCharacterScene.tscn" id="7_m5d34"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ojte4"]
+size = Vector2(1000, 50)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_5abg4"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_s6ugo"]
+width = 1000
+height = 50
+noise = SubResource("FastNoiseLite_5abg4")
+
+[node name="SceneTestThomas" type="Node2D" unique_id=1326137035]
+script = ExtResource("1_5abg4")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1448315139]
+scale = Vector2(2, 2)
+texture = ExtResource("1_ojte4")
+
+[node name="CharacterMovement" parent="." unique_id=346329133 instance=ExtResource("2_7kv4h")]
+_jump_velocity = 600.0
+
+[node name="UI" parent="CharacterMovement/Camera2D" parent_id_path=PackedInt32Array(346329133, 464510089) index="0" unique_id=1323971826 instance=ExtResource("2_kt0or")]
+
+[node name="HealthBar" parent="CharacterMovement/Camera2D/UI" index="0" unique_id=1668630192 node_paths=PackedStringArray("health")]
+offset_right = 262.0
+offset_bottom = 129.0
+size_flags_horizontal = 0
+size_flags_vertical = 0
+health = NodePath("../../../Health")
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="." unique_id=1216158627]
+position = Vector2(-860, -17)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2" unique_id=30547268]
+shape = SubResource("RectangleShape2D_ojte4")
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D2" unique_id=1870712992]
+texture = SubResource("NoiseTexture2D_s6ugo")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=901959058]
+position = Vector2(0, 158)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=569271491]
+shape = SubResource("RectangleShape2D_ojte4")
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D" unique_id=1401094045]
+texture = SubResource("NoiseTexture2D_s6ugo")
+
+[node name="FinishPointScene" parent="." unique_id=554753687 instance=ExtResource("4_5abg4")]
+position = Vector2(-1297, -113)
+
+[node name="Trap4" parent="." unique_id=2069808491 instance=ExtResource("5_s6ugo")]
+position = Vector2(159, 180)
+
+[node name="Trap5" parent="." unique_id=1363886939 instance=ExtResource("5_s6ugo")]
+position = Vector2(-232, 70)
+
+[node name="MonsterCharacter" parent="." unique_id=1112803308 instance=ExtResource("7_m5d34")]
+position = Vector2(-863, -114)
+type = 0
+_jump_velocity = 400.0
+_affected_by_gravity = true
+_gravity_mult_coef = 2
+
+[node name="MonsterController" parent="MonsterCharacter" index="3" unique_id=265597233]
+_distance = 200
+
+[connection signal="die" from="CharacterMovement/Health" to="." method="_player_die"]
+[connection signal="get_healed" from="CharacterMovement/Health" to="CharacterMovement/Camera2D/UI/HealthBar" method="update_health"]
+[connection signal="take_damage" from="CharacterMovement/Health" to="CharacterMovement/Camera2D/UI/HealthBar" method="update_health"]
+[connection signal="player_hit_finish" from="FinishPointScene" to="." method="_player_win"]
+
+[editable path="CharacterMovement"]
+[editable path="CharacterMovement/Camera2D/UI"]
+[editable path="MonsterCharacter"]

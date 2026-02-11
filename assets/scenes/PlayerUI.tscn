@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://dacm03puy8emu"]
+
+[ext_resource type="Script" uid="uid://dtqyvywsyhfhm" path="res://src/UI/health_bar.gd" id="1_qe1ul"]
+[ext_resource type="PackedScene" path="res://assets/scenes/hp.tscn" id="2_08by4"]
+
+[node name="UI" type="CanvasLayer" unique_id=1323971826]
+
+[node name="HealthBar" type="HBoxContainer" parent="." unique_id=1668630192]
+offset_right = 129.0
+offset_bottom = 120.0
+scale = Vector2(0.5, 0.5)
+script = ExtResource("1_qe1ul")
+HP_indicator_prefab = ExtResource("2_08by4")
+max_HP = 5

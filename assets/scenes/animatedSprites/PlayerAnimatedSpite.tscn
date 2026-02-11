@@ -1,0 +1,58 @@
+[gd_scene format=3 uid="uid://btu1gt7mol7di"]
+
+[ext_resource type="Texture2D" uid="uid://ccmc851ueh5vl" path="res://assets/Kenney-Platformer/Spritesheets/spritesheet-characters-double.png" id="1_3u0ln"]
+[ext_resource type="Script" uid="uid://dipmv8vgdl2r2" path="res://src/AnimationController.gd" id="2_kebnc"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xtyf6"]
+atlas = ExtResource("1_3u0ln")
+region = Rect2(768, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0xksq"]
+atlas = ExtResource("1_3u0ln")
+region = Rect2(256, 256, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pm3g2"]
+atlas = ExtResource("1_3u0ln")
+region = Rect2(1280, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m2oaa"]
+atlas = ExtResource("1_3u0ln")
+region = Rect2(0, 256, 256, 256)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_5suak"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xtyf6")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 7.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"jump",
+"speed": 7.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0xksq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pm3g2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m2oaa")
+}],
+"loop": true,
+"name": &"run",
+"speed": 7.0
+}]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" unique_id=1744373443 node_paths=PackedStringArray("health", "character_controller")]
+sprite_frames = SubResource("SpriteFrames_5suak")
+animation = &"idle"
+autoplay = "idle"
+script = ExtResource("2_kebnc")
+health = NodePath("")
+character_controller = NodePath("")

@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://ckrctg7adll17"]
+
+[ext_resource type="Script" uid="uid://bn8afttg525b1" path="res://src/FinishLevel.gd" id="1_gvo2i"]
+[ext_resource type="Texture2D" uid="uid://csolaw2gmohxb" path="res://assets/Kenney-Platformer/Spritesheets/spritesheet-tiles-double.png" id="2_dbllc"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vhivl"]
+size = Vector2(129, 129)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hg023"]
+atlas = ExtResource("2_dbllc")
+region = Rect2(0, 387, 128, 128)
+
+[node name="FinishPoint" type="Area2D" unique_id=554753687]
+script = ExtResource("1_gvo2i")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2112694660]
+shape = SubResource("RectangleShape2D_vhivl")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1470835965]
+texture = SubResource("AtlasTexture_hg023")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

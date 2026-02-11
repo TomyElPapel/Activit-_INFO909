@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://qyor8pp77sy1"]
+
+[ext_resource type="Script" uid="uid://bfnvyo2uhj22h" path="res://src/CharacterMovement.gd" id="1_am1uf"]
+[ext_resource type="Script" uid="uid://bkvuhgdbngru7" path="res://src/controller/PlayerController.gd" id="3_dvx4m"]
+[ext_resource type="PackedScene" uid="uid://btu1gt7mol7di" path="res://assets/scenes/animatedSprites/PlayerAnimatedSpite.tscn" id="4_dvx4m"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_d14j5"]
+radius = 72.0
+height = 176.0
+
+[node name="CharacterMovement" type="CharacterBody2D" unique_id=346329133]
+script = ExtResource("1_am1uf")
+speed = 400.0
+_jump_velocity = 500.0
+metadata/_custom_type_script = "uid://bfnvyo2uhj22h"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1331371252]
+shape = SubResource("CapsuleShape2D_d14j5")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=464510089]
+
+[node name="PlayerController" type="Node" parent="." unique_id=1385597081 node_paths=PackedStringArray("_characterMovement")]
+script = ExtResource("3_dvx4m")
+_characterMovement = NodePath("..")
+metadata/_custom_type_script = "uid://bkvuhgdbngru7"
+
+[node name="AnimatedSprite2D" parent="." unique_id=1744373443 node_paths=PackedStringArray("character_controller") instance=ExtResource("4_dvx4m")]
+position = Vector2(-4, -32)
+character_controller = NodePath("..")

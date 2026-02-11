@@ -1,0 +1,49 @@
+[gd_scene format=3 uid="uid://cuwovqsu2wx5j"]
+
+[ext_resource type="Texture2D" uid="uid://c7lu3lfct78rs" path="res://assets/Kenney-Platformer/Spritesheets/spritesheet-enemies-double.png" id="1_eksgi"]
+[ext_resource type="Script" uid="uid://dipmv8vgdl2r2" path="res://src/AnimationController.gd" id="2_6xuxb"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_47f5v"]
+atlas = ExtResource("1_eksgi")
+region = Rect2(256, 256, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sqyap"]
+atlas = ExtResource("1_eksgi")
+region = Rect2(384, 256, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ks6pa"]
+atlas = ExtResource("1_eksgi")
+region = Rect2(256, 256, 128, 128)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_x1fm7"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_47f5v")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 7.0
+}, {
+"frames": [{
+"duration": 1.5,
+"texture": SubResource("AtlasTexture_sqyap")
+}, {
+"duration": 1.5,
+"texture": SubResource("AtlasTexture_ks6pa")
+}],
+"loop": true,
+"name": &"run",
+"speed": 7.0
+}]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" unique_id=1897168448 node_paths=PackedStringArray("health", "character_controller")]
+scale = Vector2(-1, 1)
+sprite_frames = SubResource("SpriteFrames_x1fm7")
+animation = &"run"
+autoplay = "idle"
+frame_progress = 0.13314296
+flip_h = true
+script = ExtResource("2_6xuxb")
+health = NodePath("")
+character_controller = NodePath("")

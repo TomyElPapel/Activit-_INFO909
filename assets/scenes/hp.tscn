@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://dg3212wh0hmp"]
+
+[ext_resource type="Texture2D" uid="uid://csolaw2gmohxb" path="res://assets/Kenney-Platformer/Spritesheets/spritesheet-tiles-double.png" id="1_5h8d1"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tabuh"]
+atlas = ExtResource("1_5h8d1")
+region = Rect2(1032, 516, 129, 129)
+
+[node name="HP" type="TextureRect" unique_id=1951320537]
+texture = SubResource("AtlasTexture_tabuh")
