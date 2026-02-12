@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://bfnvyo2uhj22h" path="res://src/CharacterMovement.gd" id="1_am1uf"]
 [ext_resource type="Script" uid="uid://bkvuhgdbngru7" path="res://src/controller/PlayerController.gd" id="3_dvx4m"]
-[ext_resource type="PackedScene" uid="uid://btu1gt7mol7di" path="res://assets/scenes/animatedSprites/PlayerAnimatedSpite.tscn" id="4_dvx4m"]
+[ext_resource type="PackedScene" uid="uid://btu1gt7mol7di" path="res://assets/scenes/sprites/PlayerAnimatedSpite.tscn" id="4_dvx4m"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_d14j5"]
 radius = 72.0

@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://djrdr5de6rsv1"]
+
+[ext_resource type="Texture2D" uid="uid://csolaw2gmohxb" path="res://assets/Kenney-Platformer/Spritesheets/spritesheet-tiles-double.png" id="1_0g5sk"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_glp8g"]
+atlas = ExtResource("1_0g5sk")
+region = Rect2(0, 903, 128, 128)
+
+[node name="TrapSprite" type="Sprite2D" unique_id=1536445523]
+position = Vector2(57, -85)
+texture = SubResource("AtlasTexture_glp8g")

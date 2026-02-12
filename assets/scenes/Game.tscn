@@ -516,6 +516,7 @@ tile_set = SubResource("TileSet_1rcje")
 [node name="UI" parent="." unique_id=1323971826 instance=ExtResource("1_hkxsf")]
 
 [node name="CharacterMovement" parent="." unique_id=346329133 instance=ExtResource("2_ovtps")]
-position = Vector2(681, -293)
+position = Vector2(293, -309)
 
 [editable path="UI"]
+[editable path="CharacterMovement"]

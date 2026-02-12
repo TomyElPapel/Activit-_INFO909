@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://dbhscgxx8sgk4"]
+
+[ext_resource type="Texture2D" uid="uid://csolaw2gmohxb" path="res://assets/Kenney-Platformer/Spritesheets/spritesheet-tiles-double.png" id="1_wk83f"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pn2d2"]
+atlas = ExtResource("1_wk83f")
+region = Rect2(2194, 258, 128, 128)
+
+[node name="FinishLineSprite" type="Sprite2D" unique_id=339471234]
+texture = SubResource("AtlasTexture_pn2d2")
